@@ -20,6 +20,7 @@ library(lubridate)
 #Read in the data
 data <- read_csv("/Users/lmoore/Desktop/Documents/CSU/PhD/Classes/R_Programming_ERHS_535/Homework/Homework 5/Homework_5/Homework_5/data/homicide-data.csv")
 ```
+
 ```{r}
 # Change format of date
 data <- data %>%
@@ -34,9 +35,16 @@ data_monthly <- data %>%
   filter(city == "Baltimore", state == "MD") %>%
   mutate(year = year(reported_date),
          month = month(reported_date, label = TRUE)) %>%
-  group_by(year, month) %>%
-  summarize(monthly_homicides = n())
+  mutate(
+    month_num = month(reported_date),                # Create a numeric month column
+    date = make_date(year, month_num, 1)             # Create date using numeric month
+  ) %>%
+  group_by(year, month, date) %>%                    # Group by year, month, and date for accurate summarization
+  summarize(monthly_homicides = n(), .groups = "drop")
 
 ```
 
+```{r}
+
+```
 
