@@ -64,6 +64,11 @@ homicide_plot <- ggplot(data_monthly, aes(x = date, y = monthly_homicides)) +
     title = "Homicides in Baltimore, MD",
     x = "Date",
     y = "Monthly homicides"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.background = element_rect(fill = "gray50"),
+    plot.background = element_rect(fill = "white")
   )
 print(homicide_plot)
 ```
