@@ -51,3 +51,9 @@ data_monthly <- data_monthly %>%
   mutate(season = ifelse(month %in% c("May", "Jun", "Jul", "Aug", "Sep", "Oct"), "Summer", "Winter"))
 ```
 
+
+```{r}
+homicide_plot <- ggplot(data_monthly, aes(x = date, y = monthly_homicides)) + geom_col(width = 25)
+print(homicide_plot)
+```
+
