@@ -59,7 +59,12 @@ homicide_plot <- ggplot(data_monthly, aes(x = date, y = monthly_homicides)) +
   geom_smooth(aes(group = 1), method = "loess", color = "blue", size = 1.5, se = FALSE, span = 0.1) +
   geom_vline(xintercept = as.Date("2015-04-01"), color = "red", linetype = "dashed", size = 1) +
   annotate("text", x = as.Date("2015-04-01"), y = max(data_monthly$monthly_homicides) * 0.9,
-           label = "Arrest of\nFreddie Gray", color = "white", hjust = 1.1, size = 4)
+           label = "Arrest of\nFreddie Gray", color = "white", hjust = 1.1, size = 4) +
+  labs(
+    title = "Homicides in Baltimore, MD",
+    x = "Date",
+    y = "Monthly homicides"
+  )
 print(homicide_plot)
 ```
 
