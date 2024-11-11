@@ -1,0 +1,21 @@
+---
+title: "Homework_5"
+output: html_document
+date: "2024-11-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+
+```{r}
+data <- read_csv("/Users/lmoore/Desktop/Documents/CSU/PhD/Classes/R_Programming_ERHS_535/Homework/Homework 5/Homework_5/Homework_5/data/homicide-data.csv")
+```
+
