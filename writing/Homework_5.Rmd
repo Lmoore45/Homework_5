@@ -36,15 +36,18 @@ data_monthly <- data %>%
   mutate(year = year(reported_date),
          month = month(reported_date, label = TRUE)) %>%
   mutate(
-    month_num = month(reported_date),                # Create a numeric month column
-    date = make_date(year, month_num, 1)             # Create date using numeric month
+    month_num = month(reported_date),                # Create a month column
+    date = make_date(year, month_num, 1)             # Create a date column using numeric month
   ) %>%
-  group_by(year, month, date) %>%                    # Group by year, month, and date for accurate summarization
+  group_by(year, month, date) %>%                    # Group by year, month, and date
   summarize(monthly_homicides = n(), .groups = "drop")
-
 ```
 
-```{r}
 
+
+```{r}
+#Establish seasons
+data_monthly <- data_monthly %>%
+  mutate(season = ifelse(month %in% c("May", "Jun", "Jul", "Aug", "Sep", "Oct"), "Summer", "Winter"))
 ```
 
