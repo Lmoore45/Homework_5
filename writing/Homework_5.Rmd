@@ -54,7 +54,8 @@ data_monthly <- data_monthly %>%
 
 ```{r}
 homicide_plot <- ggplot(data_monthly, aes(x = date, y = monthly_homicides)) +
-  geom_col(aes(fill = season), width = 25)  # Color bars by season
+  geom_col(aes(fill = season), width = 25) +
+  scale_fill_manual(values = c("Summer" = "grey70", "Winter" = "lightblue"))
 print(homicide_plot)
 ```
 
